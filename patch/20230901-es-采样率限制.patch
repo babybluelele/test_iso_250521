@@ -1,0 +1,16 @@
+--- C:/Users/matrix/AppData/Local/Temp/AlsaOutputPlugin.cxx-revBASE.svn000.tmp.cxx	周四 2月  9 15:19:42 2023
++++ C:/Users/Public/work/arm/mpd/mpd-0.22.6/src/output/plugins/AlsaOutputPlugin.cxx	周五 9月  1 14:03:47 2023
+@@ -675 +675,12 @@ BestMatch(const std::forward_list<Alsa::AllowedFor
+-	return haystack.front();
++	//return haystack.front();
++	int i = 0;
++	bool flag = false;
++	for (auto it = haystack.begin(); it != haystack.end(); ++it) {
++		i++;
++		if(i==2)
++        {
++			flag = true;
++			return *it;
++		}
++    }
++	if(!flag) return haystack.front();
